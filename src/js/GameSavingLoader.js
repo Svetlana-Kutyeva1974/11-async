@@ -3,9 +3,8 @@ import read from './reader.js';
 
 export default class GameSavingLoader {
   static async load() {
-    return await read().then((response) => {
-    console.log("response data данные прочитаны\n", response, json(response));
-    return json(response);
-    });
+    const data = await read();// возвращается Promise!
+    const value = await json(data);
+    return value;
   }
 }
